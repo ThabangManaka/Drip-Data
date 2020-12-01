@@ -1,0 +1,197 @@
+
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+      <mat-card-title style="text-align:center;">Sign Up</mat-card-title>
+      <mat-card-content>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="First Name"
+              id ="name"
+              required
+              name="name"
+              ngModel
+              #name="ngModel"
+              minlength="3">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error
+              *ngIf="name.invalid">
+              First Name is required
+            </mat-error>
+            <mat-error
+            *ngIf="name.errors && name.errors.minlength">
+            First Name must be greater than 2
+          </mat-error>
+
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Last Name"
+            id ="last_name"
+            required  name="last_name"  ngModel #last_name="ngModel">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error
+              *ngIf="last_name.invalid">
+              Last Name is required
+            </mat-error>
+            <mat-error
+            *ngIf="last_name.errors && last_name.errors.minlength">
+            Last Name must be greater than 2
+          </mat-error>
+
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Email"
+              required
+              name="email"
+              ngModel
+              #email="ngModel">
+              <mat-error *ngIf="email.invalid">Email is required</mat-error>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Mobile Number"
+              required
+              name="phone"
+              ngModel type=""
+              #phone="ngModel"
+              minlength="10">
+            <mat-icon matSuffix>phone_identity</mat-icon>
+            <mat-error
+              *ngIf="phone.invalid">
+              Mobile number is required
+            </mat-error>
+            <mat-error
+            *ngIf="phone.errors && phone.errors.minlength">
+            Mobile number must be of length 10
+          </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+
+            <mat-label>Country</mat-label>
+            <select matNativeControl  required name="country" ngModel #country="ngModel">
+              <option label="Select Country"></option>
+              <option *ngFor="let country of getAllCountries()" [value]="country ">{{country}}</option>
+           
+            </select>
+            <mat-error
+              *ngIf="country.invalid">
+              Country is required
+            </mat-error>
+
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <select matNativeControl  required name="city" ngModel #city="ngModel">
+              <option label="Select city"></option>
+              <option *ngFor="let city of getAllCities()" [value]="city ">{{city}}</option>
+           
+            </select>
+          
+            <mat-error
+              *ngIf="city.invalid">
+              City is required
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Latitude "
+              required
+              name="latitude"
+              ngModel
+              #latitude="ngModel">
+       
+            <mat-error
+              *ngIf="latitude.invalid">
+             Latitude is required
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Longitude "
+              required
+              name="longitude"
+              ngModel
+              #longitude="ngModel" >
+   
+            <mat-error
+              *ngIf="longitude.invalid">
+             Longitude is required
+            </mat-error>
+
+          </mat-form-field>
+          <div class="img-class">
+            
+          <img [src]= "url"  width="100" height="100" alt="">
+          <input type="file" name='image_file' ngModel #image_file="ngModel" accept=".png, .jpg, .jpeg" (change)="selectFile($event)">
+          </div>
+
+          <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  required
+                  minlength="6"
+                  name="password"
+                  ngModel
+                  #password="ngModel">
+                  <mat-error
+                    *ngIf="password.errors && password.errors.required">
+                    Password is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="password.errors && password.errors.minlength">
+                    Password must be of length 6
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="6"
+                name="password_confirmation"
+                ngModel
+                #password_confirmation="ngModel">
+                <mat-error
+                  *ngIf="password_confirmation.errors && password_confirmation.errors.required">
+                  Re-Enter Password is required
+                </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            <button type="submit"
+            mat-raised-button
+            color="primary"   [disabled]="!f.valid"
+            class="login-button" >
+            Sign Up
+           </button>
+
+
+
+        <div class="redirectToLogin">
+          <span>Already have an account? <span class="redirect" [routerLink]="['/login']">Log In</span></span>
+        </div>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+

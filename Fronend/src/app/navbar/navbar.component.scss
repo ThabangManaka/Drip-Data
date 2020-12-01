@@ -1,0 +1,34 @@
+:root {
+    --primary: #fff;
+  }
+  mat-toolbar i {
+    cursor: pointer;
+  }
+  
+  /* .btnAdd:hover{
+    background-color: #228B22;
+  } */
+  .project {
+    font-size: 40px;
+  }
+  .navbar-logo {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .fa-typo3 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+  }
+  .nav-item {
+    height: 80px;
+  }
+  
+  a {
+    margin: 2px;
+  }
